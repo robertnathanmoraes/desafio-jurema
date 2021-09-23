@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   points;
   // @ts-ignore
   priority;
-  xAxisLabel = 'Idade'
+  xAxisLabel = 'Valor'
   yAxisLabel = 'Quantidade'
   x = Math.floor((Math.random() * 10000) + 1);
   // @ts-ignore
