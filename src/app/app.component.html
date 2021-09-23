@@ -1,0 +1,53 @@
+<mat-card class="col-12" style="display: flex; justify-content: center; border-style: groove;">
+  <h1>Cabeçalho</h1>
+</mat-card>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmitForm()" novalidate>
+
+    <div class="col-12" style="display: flex">
+      <div class="col-5">
+        <h6>Estado</h6>
+
+        <mat-form-field>
+          <mat-select formControlName="state" >
+            <mat-option *ngFor="let state of state" [value]="state.id" (click)="listarCidades(this.state.id)">
+              {{state.nome}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <div class="col-12">
+        <h6>Cidade</h6>
+
+        <mat-form-field>
+          <mat-select formControlName="city">
+            <mat-option *ngFor="let city of city" [value]="city.nome">
+              {{city.nome}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+    </div>
+  </form>
+
+
+<div class="container">
+  <div class="row">
+    <ngx-charts-bar-vertical
+      [view]="[1000,400]"
+      [results]="saleData"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [legend]="false"
+      [showGridLines]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [gradient]="false" *ngIf="!loading">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
